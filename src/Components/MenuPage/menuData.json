@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Шаурма",
+    "image": "/Images/shaurma.jpg",
+    "description": "Описание блюда"
+  },
+  {
+    "id": 2,
+    "name": "Рыба",
+    "image": "/Images/fish.jpg",
+    "description": "Описание блюда"
+  },
+  {
+    "id": 3,
+    "name": "Выпечка",
+    "image": "/Images/bakery.jpg",
+    "description": "Описание блюда"
+  },
+  {
+    "id": 4,
+    "name": "Закуска",
+    "image": "/Images/sneack.jpg",
+    "description": "Описание блюда"
+  },
+  {
+    "id": 5,
+    "name": "Напиток",
+    "image": "/Images/drink.jpg",
+    "description": "Описание блюда"
+  }
+]

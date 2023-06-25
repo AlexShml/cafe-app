@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
-}
+@import "~bootstrap/dist/css/bootstrap.css";
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* MainPage Start */
+.MainPage {
+  padding: 24px;
+  background-image: url(Images/backgroundImage.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+/* MainPage End */
+
+/* Header Start */
+.bold-large-text {
+  font-weight: bold;
+  font-size: 24px;
+}
+/* Header End */
+
+/* hero-section Start */
+.HeroSection__Button {
+  background: transparent;
+  font-weight: bold;
+  color: black;
+}
+/* hero-section End */
+
+/* menu-section Start */
+
+/* menu-section End */
+
+/* MenuPage Start */
+.menu-page {
+  padding: 24px;
+  background-image: url(Images/backgroundImage.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  min-height: 100vh;
+}
+.menu-page__item {
+  background-color: #eeffbbca;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 16px;
+  height: 320px;
+}
+.menu-page__item-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover; /* Подгоняем изображения по размерам */
+  border-radius: 8px;
+}
+.menu-page__item-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 12px;
 }
 
-.App-link {
-  color: #61dafb;
+.menu-page__item-description {
+  margin-top: 8px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* MenuPage End */
