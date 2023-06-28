@@ -1,10 +1,32 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row } from "react-bootstrap";
 import menuData from "./menuData.json";
 import Header from "../Header";
+import MenuItem from "./MenuItem";
 import "../../App.css";
 
 function MenuPage() {
+  const [itemsCount, setItemsCount] = useState({});
+
+  const handleIncrement = (itemId) => {
+    setItemsCount((prevItemsCount) => ({
+      ...prevItemsCount,
+      [itemId]: (prevItemsCount[itemId] || 0) + 1,
+    }));
+  };
+
+  const handleDecrement = (itemId) => {
+    setItemsCount((prevItemsCount) => ({
+      ...prevItemsCount,
+      [itemId]: Math.max((prevItemsCount[itemId] || 0) - 1, 0),
+    }));
+  };
+
+  const handleAddToOrder = (itemId) => {
+    const count = itemsCount[itemId] || 0;
+    console.log(`Item ${itemId} added to order with quantity ${count}`);
+  };
+
   return (
     <div className="menu-page">
       <Header />
@@ -12,19 +34,14 @@ function MenuPage() {
         <Container>
           <Row>
             {menuData.map((menuItem) => (
-              <Col key={menuItem.id} sm={6} md={4} lg={3}>
-                <div className="menu-page__item">
-                  <img
-                    className="menu-page__item-image"
-                    src={menuItem.image}
-                    alt={menuItem.name}
-                  />
-                  <h3 className="menu-page__item-title">{menuItem.name}</h3>
-                  <p className="menu-page__item-description">
-                    {menuItem.description}
-                  </p>
-                </div>
-              </Col>
+              <MenuItem
+                key={menuItem.id}
+                menuItem={menuItem}
+                handleIncrement={handleIncrement}
+                handleDecrement={handleDecrement}
+                handleAddToOrder={handleAddToOrder}
+                itemCount={itemsCount}
+              />
             ))}
           </Row>
         </Container>

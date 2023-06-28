@@ -6,21 +6,23 @@ function MenuSection() {
   return (
     <section className="menu-section" id="menu-section">
       <Container>
-        <h2 className="text-center">Наше меню</h2>
+        <h2 className="text-center">
+          <span>Наше меню</span>
+        </h2>
         <Row className="d-flex justify-content-center">
           <Col className="text-center">
             <ul>
               <li>
-                <span>Фирменная шаурма</span> - 100 руб.
+                <span>Фирменная шаурма - 100 руб.</span>
               </li>
               <li>
-                <span>Рыбка</span> - 50 руб.
+                <span>Рыбка - 50 руб.</span>
               </li>
               <li>
-                <span>Булка</span> - 80 руб.
+                <span>Булка - 80 руб.</span>
               </li>
               <li>
-                <span>Кола</span> - 100 руб.
+                <span>Кола - 100 руб.</span>
               </li>
             </ul>
           </Col>

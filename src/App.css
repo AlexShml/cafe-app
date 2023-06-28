@@ -10,6 +10,10 @@
   display: block;
   min-height: 100vh;
 }
+span {
+  background-color: #eeffbbca;
+  border-radius: 5px;
+}
 /* MainPage End */
 
 /* Header Start */
@@ -20,14 +24,23 @@
 /* Header End */
 
 /* hero-section Start */
-.HeroSection__Button {
+.HeroSection__Button,
+.menu-page__item-minus-button,
+.menu-page__item-plus-button,
+.menu-page__item-add-button {
   background: transparent;
   font-weight: bold;
   color: black;
 }
+.HeroSection__Button {
+  background-color: #eeffbbca;
+}
 /* hero-section End */
 
 /* menu-section Start */
+.menu-section {
+  margin-top: 10px;
+}
 
 /* menu-section End */
 
@@ -56,12 +69,28 @@
   border-radius: 8px;
 }
 .menu-page__item-title {
+  text-align: center;
   font-size: 18px;
   font-weight: bold;
   margin-top: 12px;
 }
 
 .menu-page__item-description {
+  text-align: center;
   margin-top: 8px;
+}
+
+.menu-page__item-counter {
+  display: flex;
+  text-align: center;
+}
+
+.menu-page__item-count {
+  margin: 5px;
+  width: 20px;
+}
+
+.menu-page__item-add-button {
+  margin-left: 5px;
 }
 /* MenuPage End */
