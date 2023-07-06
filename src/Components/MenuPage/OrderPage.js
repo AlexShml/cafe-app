@@ -33,3 +33,46 @@ function OrderPage() {
 }
 
 export default OrderPage;
+
+{
+  /* <Button
+            className="menu-page__item-minus-button "
+            variant="outline-primary"
+            size="sm"
+            onClick={() => handleDecrement(menuItem.id)}
+          >
+            -
+          </Button>
+          <span className="menu-page__item-count">
+            {itemsCount[menuItem.id] || 0}
+          </span>
+          <Button
+            className="menu-page__item-plus-button"
+            variant="outline-primary"
+            size="sm"
+            onClick={() => handleIncrement(menuItem.id)}
+          >
+            +
+          </Button> */
+}
+
+// const [itemsCount, setItemsCount] = useState({});
+
+// const handleIncrement = (itemId) => {
+//   setItemsCount((prevItemsCount) => {
+//     const newItemsCount = {
+//       ...prevItemsCount,
+//       [itemId]: (prevItemsCount[itemId] || 0) + 1,
+//     };
+//     console.log(newItemsCount);
+//     localStorage.setItem("itemsCount", JSON.stringify(newItemsCount));
+//     return newItemsCount;
+//   });
+// };
+
+// const handleDecrement = (itemId) => {
+//   setItemsCount((prevItemsCount) => ({
+//     ...prevItemsCount,
+//     [itemId]: Math.max((prevItemsCount[itemId] || 0) - 1, 0),
+//   }));
+// };

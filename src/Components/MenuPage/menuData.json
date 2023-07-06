@@ -1,32 +1,32 @@
 [
   {
     "id": 1,
-    "name": "Шаурма",
+    "name": "shawarma from the chef",
     "image": "/Images/shaurma.jpg",
-    "description": "Описание блюда"
+    "description": "Description of the dish"
   },
   {
     "id": 2,
-    "name": "Рыба",
+    "name": "Fish",
     "image": "/Images/fish.jpg",
-    "description": "Описание блюда"
+    "description": "Description of the dish sdfsdfxzddgfdfghdfsfyjdghnsfgbsdfbsfgndfgnsfbsfgndghndfgndfgndgh"
   },
   {
     "id": 3,
-    "name": "Выпечка",
+    "name": "Bakery",
     "image": "/Images/bakery.jpg",
-    "description": "Описание блюда"
+    "description": "Description of the dish"
   },
   {
     "id": 4,
-    "name": "Закуска",
+    "name": "Snack",
     "image": "/Images/sneack.jpg",
-    "description": "Описание блюда"
+    "description": "Description of the dish"
   },
   {
     "id": 5,
-    "name": "Напиток",
+    "name": "Drink",
     "image": "/Images/drink.jpg",
-    "description": "Описание блюда"
+    "description": "Description of the dish"
   }
 ]

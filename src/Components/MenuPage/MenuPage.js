@@ -3,19 +3,20 @@ import { Container, Row } from "react-bootstrap";
 import menuData from "./menuData.json";
 import Header from "../Header";
 import MenuItem from "./MenuItem";
+import EqualHeightRow from "./EqualHeightRow";
 import "../../App.css";
 
 function MenuPage() {
   return (
     <div className="menu-page">
       <Header />
-      <div className="menu-page__content">
+      <div>
         <Container>
-          <Row>
+          <EqualHeightRow className="menu-page__content">
             {menuData.map((menuItem) => (
               <MenuItem key={menuItem.id} menuItem={menuItem} />
             ))}
-          </Row>
+          </EqualHeightRow>
         </Container>
       </div>
     </div>

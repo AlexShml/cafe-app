@@ -5,12 +5,12 @@ function ContactSection() {
   return (
     <section className="contact-section text-center " id="contact-section">
       <h2>
-        <span>Контакты</span>
+        <span>Contacts</span>
       </h2>
       <p>
         <span>
-          Мы находимся по адресу: ул. Пушкина, 10. Вы можете связаться с нами по
-          телефону: 8-800-555-55-55 или написать нам на почту: info@mycafe.ru.
+          We are located at Akaki Street, Poti. You can contact us by phone:
+          8-800-555-55-55 or write to us by mail: info@mycafe.ge.
         </span>
       </p>
     </section>

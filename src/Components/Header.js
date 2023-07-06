@@ -9,13 +9,13 @@ function Header() {
         <Container className="justify-content-center">
           <Nav className="mr-auto bold-large-text">
             <Nav.Link href="/menu">
-              <span>Меню</span>
+              <span>Menu</span>
             </Nav.Link>
             <Nav.Link href="/#about-section">
-              <span>О нас</span>
+              <span>About us</span>
             </Nav.Link>
             <Nav.Link href="/#contact-section">
-              <span>Контакты</span>
+              <span>Contacts</span>
             </Nav.Link>
           </Nav>
         </Container>

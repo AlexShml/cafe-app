@@ -11,14 +11,16 @@ function HeroSection() {
           <Col className="text-center">
             <div className="hero-content">
               <h1>
-                <span>Название кафе</span>
+                <span>Cafe name</span>
               </h1>
               <p>
-                <span>Здесь вы найдете самую вкусную шаурму в городе.</span>
+                <span>
+                  Here you will find the most delicious shawarma in town.
+                </span>
               </p>
               <Link to="/menu">
                 <Button className="HeroSection__Button" variant="primary">
-                  Заказать
+                  Order
                 </Button>
               </Link>
             </div>

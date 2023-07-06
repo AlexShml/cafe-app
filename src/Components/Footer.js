@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="text-center">
       <p>
-        <span>&copy; 2023 Название вашего кафе. Все права защищены.</span>
+        <span>&copy; 2023 Cafe name. All rights reserved.</span>
       </p>
     </footer>
   );
