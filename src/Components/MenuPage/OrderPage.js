@@ -1,11 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Container, Card, Col, Row } from "react-bootstrap";
-import { MenuContext } from "./MenuContext";
 import Header from "../Header";
+import menuData from "./menuData.json";
 
 function OrderPage({ selectedItems }) {
-  const { menuData } = useContext(MenuContext);
-
   console.log("selectedItems in OrderPage:", selectedItems);
 
   useEffect(() => {

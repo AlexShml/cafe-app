@@ -1,23 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
-import { MenuContext } from "./MenuContext";
 import "../../App.css";
 
-function AddToOrderButton({ menuItem }) {
-  // const [selectedItems, setSelectedItems] = useState([]);
-  // const handleAddToOrder = (itemId) => {
-  //   setSelectedItems((prevSelectedItems) => {
-  //     const newSelectedItems = [...prevSelectedItems, itemId];
-  //     return newSelectedItems;
-  //   });
-  // };
-
-  const { AddToOrder } = useContext(MenuContext);
-
-  const handleAddToOrder = (itemId) => {
-    AddToOrder(itemId);
-  };
-
+function AddToOrderButton({ menuItem, handleAddToOrder }) {
   return (
     <div className="menu-page__item-counter d-flex justify-content-center">
       <Button
