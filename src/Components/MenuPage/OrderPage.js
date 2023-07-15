@@ -1,41 +1,52 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Container, Card, Col, Row } from "react-bootstrap";
+import { MenuContext } from "./MenuContext";
+import Header from "../Header";
 
-function OrderPage() {
-  const itemsCount = JSON.parse(localStorage.getItem("orderItems")) || {};
+function OrderPage({ selectedItems }) {
+  const { menuData } = useContext(MenuContext);
 
-  // Фильтруем элементы меню, у которых количество больше 0
-  const orderedItems = Object.keys(itemsCount).filter(
-    (itemId) => itemsCount[itemId] > 0
+  console.log("selectedItems in OrderPage:", selectedItems);
+
+  useEffect(() => {
+    console.log("selectedItems:", selectedItems);
+    console.log("menuData:", menuData);
+  }, [selectedItems]);
+
+  // Фильтруем элементы меню на основе выбранных элементов
+  const orderedItems = menuData.filter((menuItem) =>
+    selectedItems.includes(menuItem.id)
   );
 
   return (
-    <Container>
-      <h1>Страница заказа</h1>
-      {orderedItems.length > 0 ? (
-        <Row>
-          {orderedItems.map((itemId) => (
-            <Col key={itemId} xs={12} sm={6} md={4} lg={3}>
-              <Card className="mb-3">
-                <Card.Body>
-                  <Card.Title>{`Item ID: ${itemId}`}</Card.Title>
-                  <Card.Text>{`Amount: ${itemsCount[itemId]}`}</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      ) : (
-        <p>Нет выбранных элементов меню</p>
-      )}
-    </Container>
+    <div>
+      <Header />
+      <Container>
+        <h1>Your Order</h1>
+        {orderedItems.length > 0 ? (
+          <Row>
+            {orderedItems.map((menuItem) => (
+              <Col key={menuItem.id} xs={12} sm={6} md={4} lg={3}>
+                <Card className="mb-3">
+                  <Card.Body>
+                    <Card.Title>{menuItem.name}</Card.Title>
+                    <Card.Text>{menuItem.description}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        ) : (
+          <p>No menu items selected</p>
+        )}
+      </Container>
+    </div>
   );
 }
 
 export default OrderPage;
 
-{
-  /* <Button
+/* <Button
             className="menu-page__item-minus-button "
             variant="outline-primary"
             size="sm"
@@ -54,7 +65,6 @@ export default OrderPage;
           >
             +
           </Button> */
-}
 
 // const [itemsCount, setItemsCount] = useState({});
 

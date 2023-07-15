@@ -17,6 +17,9 @@ function Header() {
             <Nav.Link href="/#contact-section">
               <span>Contacts</span>
             </Nav.Link>
+            <Nav.Link href="/order">
+              <span>Your Order</span>
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
