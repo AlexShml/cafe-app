@@ -1,19 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Card, Col, Row } from "react-bootstrap";
 import Header from "../Header";
-import menuData from "./menuData.json";
+import "../../App.css";
 
-function OrderPage({ selectedItems }) {
-  console.log("selectedItems in OrderPage:", selectedItems);
+function OrderPage() {
+  const [menuData, setMenuData] = useState([]);
+  const [orderedItems, setOrderedItems] = useState([]);
 
   useEffect(() => {
-    console.log("selectedItems:", selectedItems);
-    console.log("menuData:", menuData);
-  }, [selectedItems]);
+    fetch("/api/menu") // Отправляем GET-запрос на API для получения меню
+      .then((response) => response.json())
+      .then((respJson) => setMenuData(respJson))
+      .catch((error) => console.error("Ошибка при загрузке меню:", error));
+
+    fetch("/api/getSelectedItems") // Отправляем GET-запрос на API для получения выбранных элементов
+      .then((response) => response.json())
+      .then((respJson) => setOrderedItems(respJson))
+      .catch((error) =>
+        console.error("Ошибка при загрузке выбранных элементов:", error)
+      );
+  }, []);
 
   // Фильтруем элементы меню на основе выбранных элементов
-  const orderedItems = menuData.filter((menuItem) =>
-    selectedItems.includes(menuItem.id)
+  const order = menuData.filter((menuItem) =>
+    orderedItems.includes(menuItem.id)
   );
 
   return (
@@ -21,9 +31,9 @@ function OrderPage({ selectedItems }) {
       <Header />
       <Container>
         <h1>Your Order</h1>
-        {orderedItems.length > 0 ? (
+        {order.length > 0 ? (
           <Row>
-            {orderedItems.map((menuItem) => (
+            {order.map((menuItem) => (
               <Col key={menuItem.id} xs={12} sm={6} md={4} lg={3}>
                 <Card className="mb-3">
                   <Card.Body>
