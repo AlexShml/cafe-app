@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Container, Card, Col, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import { ClearOrderButton } from "./ClearOrderButton";
 import Header from "../Header";
+import { OrderCard } from "./OrderCard";
+
 import "../../App.css";
 
 function OrderPage() {
   const [menuData, setMenuData] = useState([]);
   const [orderedItems, setOrderedItems] = useState([]);
+  const [orderCleared, setOrderCleared] = useState(false); // Добавляем состояние для отслеживания очистки заказа
+  console.log("orderCleared>>>", orderCleared);
 
   useEffect(() => {
     fetch("/api/menu") // Отправляем GET-запрос на API для получения меню
@@ -15,82 +20,43 @@ function OrderPage() {
 
     fetch("/api/getSelectedItems") // Отправляем GET-запрос на API для получения выбранных элементов
       .then((response) => response.json())
-      .then((respJson) => setOrderedItems(respJson))
+      .then((respJson) => {
+        setOrderedItems(respJson);
+      })
       .catch((error) =>
         console.error("Ошибка при загрузке выбранных элементов:", error)
       );
-  }, []);
+    console.log("useeff orderCleared>>>", orderCleared);
+  }, [orderCleared]);
 
   // Фильтруем элементы меню на основе выбранных элементов
   const order = menuData.filter((menuItem) =>
     orderedItems.includes(menuItem.id)
   );
 
+  // Функция для принудительной перерисовки компонента
+  const forceUpdate = () => orderCleared((prev) => !prev);
+
   return (
     <div>
       <Header />
       <Container>
-        <h1>Your Order</h1>
+        <h1 className="text-center">
+          <span>Your Order</span>
+        </h1>
         {order.length > 0 ? (
-          <Row>
+          <Row className="d-flex flex-column align-items-center">
             {order.map((menuItem) => (
-              <Col key={menuItem.id} xs={12} sm={6} md={4} lg={3}>
-                <Card className="mb-3">
-                  <Card.Body>
-                    <Card.Title>{menuItem.name}</Card.Title>
-                    <Card.Text>{menuItem.description}</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
+              <OrderCard key={menuItem.id} menuItem={menuItem} />
             ))}
           </Row>
         ) : (
-          <p>No menu items selected</p>
+          <p className="text-center">No menu items selected</p>
         )}
       </Container>
+      <ClearOrderButton setOrderCleared={setOrderCleared} />
     </div>
   );
 }
 
 export default OrderPage;
-
-/* <Button
-            className="menu-page__item-minus-button "
-            variant="outline-primary"
-            size="sm"
-            onClick={() => handleDecrement(menuItem.id)}
-          >
-            -
-          </Button>
-          <span className="menu-page__item-count">
-            {itemsCount[menuItem.id] || 0}
-          </span>
-          <Button
-            className="menu-page__item-plus-button"
-            variant="outline-primary"
-            size="sm"
-            onClick={() => handleIncrement(menuItem.id)}
-          >
-            +
-          </Button> */
-
-// const [itemsCount, setItemsCount] = useState({});
-
-// const handleIncrement = (itemId) => {
-//   setItemsCount((prevItemsCount) => {
-//     const newItemsCount = {
-//       ...prevItemsCount,
-//       [itemId]: (prevItemsCount[itemId] || 0) + 1,
-//     };
-//     console.log(newItemsCount);
-//     localStorage.setItem("itemsCount", JSON.stringify(newItemsCount));
-//     return newItemsCount;
-//   });
-// };
-
-// const handleDecrement = (itemId) => {
-//   setItemsCount((prevItemsCount) => ({
-//     ...prevItemsCount,
-//     [itemId]: Math.max((prevItemsCount[itemId] || 0) - 1, 0),
-//   }));
-// };

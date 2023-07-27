@@ -61,7 +61,8 @@ span {
 /* .equal-height-column {
   height: 4505px;
 } */
-.menu-page__item {
+.menu-page__item,
+.order-page__item {
   display: flex;
   flex-direction: column;
   width: 216px;
@@ -70,7 +71,6 @@ span {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   padding: 16px;
   margin-bottom: 16px;
-  /* height: 500px; */
 }
 .menu-page__item-image {
   width: 100%;
@@ -94,12 +94,13 @@ span {
 .menu-page__item-counter {
   margin-top: auto;
 }
-/*
+
 .menu-page__item-count {
+  text-align: center;
   margin: 5px;
   width: 20px;
-} 
-
+}
+/*
 .menu-page__item-add-button {
   align-self: self-end;
 }*/
